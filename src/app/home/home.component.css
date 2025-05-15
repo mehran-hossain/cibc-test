@@ -1,0 +1,193 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f5f6fa;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.top-section {
+    background: #00172b;
+    color: #fff;
+    width: 100vw;
+    margin: 0;
+    padding: 0 0 1.2rem 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem 0.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bankbox-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.bankbox-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: text-decoration 0.2s;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.2rem 1rem 0 1rem;
+    background: #f5f6fa;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem 0.5rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto 1rem auto;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+}
+
+.welcome-message {
+    font-size: 1.1rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.learn-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #222;
+    font-size: 1rem;
+}
+
+.learn-section em {
+    color: #666;
+    font-size: 0.98rem;
+}
+
+.banks-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.bank-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    min-height: 370px;
+    transition: box-shadow 0.2s;
+}
+
+.bank-card:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+}
+
+.bank-logo {
+    width: 260px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.bank-desc {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.bank-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.guided-btn, .explore-btn {
+    padding: 0.7rem 1.3rem;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.guided-btn {
+    background: #000;
+    color: #fff;
+}
+
+.guided-btn:hover {
+    background: #222;
+}
+
+.explore-btn {
+    background: #e0e0e0;
+    color: #222;
+}
+
+.explore-btn:hover {
+    background: #cacaca;
+}
+
+@media (max-width: 900px) {
+    .banks-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .bank-card {
+        width: 95vw;
+        max-width: 370px;
+    }
+} 

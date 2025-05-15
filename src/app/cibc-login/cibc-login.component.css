@@ -1,0 +1,324 @@
+body, html, :host {
+  margin: 0;
+  padding: 0;
+  background: #b81c3b;
+  font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0a0a0a;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cibc-login-bg {
+  min-height: 100vh;
+  background: #b81c3b;
+}
+
+.cibc-header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 6px solid #b81c3b;
+  padding: 0;
+}
+
+.cibc-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 2.5rem 1rem 2.5rem;
+}
+
+.cibc-logo {
+  height: 48px;
+}
+
+.lang-switch {
+  color: #fff;
+  background: #b81c3b;
+  padding: 0.3rem 1.2rem;
+  border-radius: 0 0 8px 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: -1.5rem;
+}
+
+.cibc-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.cibc-login-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 2.5rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+.cibc-login-card {
+  background: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+  width: 872px;
+  max-width: 100%;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+}
+
+.cibc-login-card * {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 400 !important;
+}
+
+.masthead {
+  margin-bottom: 2.2rem;
+}
+
+.preheading {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #0a0a0a;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.masthead h1 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0.5rem 0 0.7rem 0;
+  color: #0a0a0a;
+  line-height: 1.15;
+}
+
+.subheading {
+  font-size: 1.08rem;
+  color: #0a0a0a;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.subheading a {
+  color: #b81c3b;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.signon-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+.form-group label {
+  font-weight: 400;
+  color: #0a0a0a;
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 1.1rem 1rem;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 12px;
+  font-size: 1.13rem;
+  background: #fff;
+  color: #0a0a0a;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-weight: 400;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  outline: none;
+  border-color: #b81c3b;
+}
+
+.remember-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  font-size: 1rem;
+  color: #0a0a0a;
+  font-weight: 400;
+}
+
+.info-btn {
+  background: none;
+  border: none;
+  padding: 0 0.2rem;
+  cursor: pointer;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.info-icon {
+  font-size: 1.1rem;
+  color: #888;
+}
+
+.input-password {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.input-password input {
+  border: none;
+  flex: 1;
+  padding: 1.1rem 1rem;
+  font-size: 1.13rem;
+  background: transparent;
+  color: #0a0a0a;
+  font-weight: 400;
+}
+
+.input-password input:focus {
+  outline: none;
+}
+
+.show-hide {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  color: #b81c3b;
+}
+
+.reset-link {
+  margin-top: 0.7rem;
+}
+
+.reset-link a {
+  color: #b81c3b;
+  text-decoration: underline;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.cibc-login-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+
+.signon-btn {
+  flex: 1;
+  background: #b81c3b;
+  color: #fff;
+  border: 2px solid #b81c3b;
+  border-radius: 8px;
+  padding: 1.1rem 0;
+  font-size: 1.13rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.signon-btn:hover {
+  background: #a0152f;
+}
+
+.register-btn {
+  flex: 1;
+  background: #fff;
+  color: #b81c3b;
+  border: 2px solid #b81c3b;
+  border-radius: 8px;
+  padding: 1.1rem 0;
+  font-size: 1.13rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.register-btn:hover {
+  background: #fbeaec;
+}
+
+.cibc-login-sidecard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+  max-width: 340px;
+  min-width: 260px;
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.side-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.sidecard-content {
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+}
+
+.sidecard-content h2 {
+  margin: 0 0 0.7rem 0;
+  color: #0a0a0a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.sidecard-content p {
+  color: #0a0a0a;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.sidecard-content a {
+  color: #b81c3b;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .cibc-login-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .cibc-login-sidecard {
+    margin-left: 0;
+    width: 100%;
+    max-width: 400px;
+  }
+  .cibc-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
