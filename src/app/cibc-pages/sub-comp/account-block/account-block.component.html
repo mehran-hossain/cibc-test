@@ -1,0 +1,25 @@
+<div class="account-block">
+    <div class="account-block__header">
+      <div>
+        <!-- Account Type and Number (dynamic) -->
+        <div class="account-block__type">{{ accountType }}</div>
+        <div class="account-block__number">{{ accountNumber }}</div>
+      </div>
+      <!-- Placeholder for red image/card type badge -->
+      <div class="account-block__card-type">
+        <img *ngIf="cardImage" [src]="cardImage" alt="Card Type Icon" />
+      </div>
+    </div>
+    <div class="account-block__balance">
+      ${{ balance | number:'1.2-2' }}
+    </div>
+    <div class="account-block__actions">
+      <button class="account-btn">
+        <span class="icon">&#9992;</span> Send Money
+      </button>
+      <button class="account-btn">
+        <span class="icon">&#8644;</span> Transfer funds
+      </button>
+      <button class="account-btn more-btn">...</button>
+    </div>
+  </div>

@@ -13,10 +13,10 @@
           <h1>Sign on using your CIBC card number</h1>
           <div class="subheading">Not registered for Online Banking or Mobile Banking? <a href="#">Register now.</a></div>
         </div>
-        <form class="signon-form">
+        <form class="signon-form" (ngSubmit)="onSignOn()">
           <div class="form-group">
             <label for="cardNumber">Card number</label>
-            <input type="text" id="cardNumber" maxlength="19" autocomplete="cc-number" />
+            <input type="text" id="cardNumber" [(ngModel)]="cardNumber" name="cardNumber" maxlength="19" autocomplete="cc-number" />
             <div class="remember-row">
               <input type="checkbox" id="rememberCard" />
               <label for="rememberCard">Remember this card number</label>
@@ -26,9 +26,12 @@
           <div class="form-group">
             <label for="password">Password (case sensitive)</label>
             <div class="input-password">
-              <input type="password" id="password" maxlength="32" autocomplete="current-password" />
+              <input type="password" id="password" [(ngModel)]="password" name="password" maxlength="32" autocomplete="current-password" />
             </div>
             <div class="reset-link"><a href="#">Reset password</a></div>
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
           </div>
           <div class="cibc-login-actions">
             <button type="button" class="register-btn">Register now</button>
@@ -46,4 +49,4 @@
       </aside>
     </div>
   </main>
-</div>
+</div> 

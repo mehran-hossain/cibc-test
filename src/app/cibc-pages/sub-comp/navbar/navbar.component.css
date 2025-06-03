@@ -1,0 +1,163 @@
+.navbar {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #901c44;
+  /* CIBC red */
+  color: white;
+}
+
+.cibc-logo {
+  /* width: 145.78px; */
+  height: 37px;
+  margin-left: 175px;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+.navbar-right {
+  margin-right: 100px;
+  /* Decrease to move left, increase to move right */
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  /* no underline */
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 16px;
+  padding: 4px 8px;
+  /* optional: makes clicking easier */
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  /* a nice red glow on hover */
+  text-decoration: underline;
+  /* optional for better feedback */
+}
+
+
+
+.nav-button {
+  background-color: transparent;
+  border: none;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-button:hover {
+  text-decoration: underline;
+}
+
+.sign-off {
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.sign-off:hover {
+  background-color: white;
+  color: #a6192e;
+  text-decoration: none;
+}
+
+.navbar-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-container {
+  margin-bottom: 16px;
+}
+
+.navbar-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-left: 50px;
+}
+
+.search-button {
+  background: #f5f5f5;
+  color: #901c44;
+  border-radius: 50px;
+  border: none;
+  padding: 6px 18px 6px 12px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  margin-left: 32px;
+}
+
+.search-button svg {
+  margin-right: 4px;
+}
+
+.search-button:hover {
+  background: #e9e9e9;
+}
+
+.navbar-below-logo {
+  margin-left: 160px;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  /* I fixed align-items: right; (which is invalid) to center */
+}
+
+/* Buttons style */
+.nav-button {
+  background-color: #f5f5f5;
+  color: #333;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+}
+
+/* The "Banking" button with the red background and bold text */
+.nav-button.active {
+  background-color: #be1e2d;
+  color: white;
+  font-weight: bold;
+}
+
+/* Special button with the notification dot */
+.offers-and-products {
+  position: relative;
+}
+
+/* The little red dot */
+.notification-dot {
+  background: #be1e2d;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+/* Search input style */
+.search-input {
+  border-radius: 24px;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  outline: none;
+  font-size: 16px;
+  margin-left: auto;
+  /* pushes the search box to the right */
+}

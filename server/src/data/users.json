@@ -1,0 +1,16 @@
+[
+    {
+      "id": "user123",
+      "email": "babydawg@bankbox.com",
+      "password": "password123",
+      "name": "Babydawg",
+      "balance": 1200
+    },
+    {
+      "id": "user456",
+      "email": "cooluser@bankbox.com",
+      "password": "secureboi",
+      "name": "Cool User",
+      "balance": 750
+    }
+  ]

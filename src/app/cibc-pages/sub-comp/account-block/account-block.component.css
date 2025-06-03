@@ -1,0 +1,77 @@
+.account-block {
+    background: #f6f7f6;
+    border-radius: 16px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  
+  .account-block__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .account-block__type {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .account-block__number {
+    color: #888;
+    font-size: 1rem;
+    margin-top: 2px;
+  }
+  
+  /* Red badge placeholder for card type */
+  .account-block__card-type {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: none;
+    padding: 0;
+    margin-left: 16px;
+    min-width: 80px;
+  }
+  
+  .account-block__card-type img {
+    width: 90px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+  
+  .account-block__balance {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 18px 0;
+  }
+  
+  .account-block__actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 12px;
+  }
+  
+  .account-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  
+  .account-btn.more-btn {
+    width: 44px;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding: 0;
+  }

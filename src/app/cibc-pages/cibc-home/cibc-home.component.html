@@ -1,0 +1,275 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="sidebar">
+    <button class="sidebar-btn">
+      <span class="icon">
+        <img src="/assets/icon-home-active.svg" alt="Home Icon" class="icon">
+      </span>
+      <span class="label">Home</span>
+    </button>
+    <button class="sidebar-btn">
+      <span class="icon">
+       <img src="/assets/icon-account-details.svg" alt="Account Details Icon" class="icon"> <!-- Account Details icon SVG -->
+        
+      </span>
+      <span class="label">Account Details</span>
+    </button>
+    <button class="sidebar-btn">
+      <span class="icon">
+        <img src="/assets/icon-estatements.svg" alt="My Documents Icon" class="icon"> <!-- My Documents icon SVG -->
+        
+      </span>
+      <span class="label">My Documents</span>
+    </button>
+
+    <app-sidebar
+      [title]="'Move Money'"
+      [items]="['Bill Payments', 'Transfer Funds', 'Interac e-Transfer']"
+    >
+    </app-sidebar>
+    <app-sidebar
+      [title]="'Advice'"
+      [items]="['Net Worth', 'Help Centre', 'Customer Service']"
+    >
+    </app-sidebar>
+    <app-sidebar
+      [title]="'More'"
+      [items]="[
+        'Global Money Transfer ',
+        'Order Foreign Cash',
+        'Buy Gold and Silver',
+        'Check Credit Score',
+        'Download Transactions',
+        'Manage Upcoming Transactions',
+        'Document Delivery Preferences',
+        'Request Centre'
+      ]"
+    >
+    </app-sidebar>
+    <app-sidebar
+      [title]="'Settings'"
+      [items]="[
+        'Manage My Card',
+        'Manage My Alerts',
+        'Preference Centre',
+        'Account Security',
+        'Statment Preferences'
+      ]"
+    >
+    </app-sidebar>
+
+    <img
+      src="assets/home-image.png"
+      alt="cibc-home-img"
+      class="cibc-home-img"
+    />
+  </div>
+  <div class="center-content">
+    <!-- Offer Banner Notification -->
+    <div class="offer-banner">
+      <div class="offer-banner__icon">
+        <!-- Replace with your actual icon path or SVG -->
+        <img src="assets/star.png" alt="Offer Icon" />
+      </div>
+      <div class="offer-banner__message">
+        You've been rewarded with a new offer.
+      </div>
+      <div class="offer-banner__cta">
+        Check out your<br />
+        offer now before it<br />
+        expires! <span class="arrow">&rsaquo;</span>
+      </div>
+    </div>
+    <!-- Pagination for Offer Banner (arrows removed) -->
+    <div class="offer-banner__pagination">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+    </div>
+
+    <p>DEPOSIT ACCOUNTS</p>
+    <app-account-block
+      [accountType]="'Chequing'"
+      [accountNumber]="user?.accounts?.chequing?.accountNumber || '1234567890'"
+      [balance]="chequingBalance"
+      [cardImage]="'assets/debit.png'"
+    ></app-account-block>
+    <app-account-block
+      [accountType]="'Savings'"
+      [accountNumber]="user?.accounts?.savings?.accountNumber || '1234562113'"
+      [balance]="savingsBalance"
+      [cardImage]="'/assets/visa.png'"
+    ></app-account-block>
+
+    <div class="balance-box">
+      <span>Total account balance</span>
+      <span>${{ totalBalance | number:'1.2-2' }}</span>
+      <span class="info-icon" title="This is your total available balance."
+        >ℹ️</span
+      >
+    </div>
+    <p>CREDIT CARDS</p>
+    <app-account-block
+      [accountType]="'CIBC VISA'"
+      [accountNumber]="user?.accounts?.visa?.accountNumber || '1234-5678-9012-2113'"
+      [balance]="visaBalance"
+      [cardImage]="'/assets/visa.png'"
+    ></app-account-block>
+    <div class="balance-box">
+      <span class="balance-content">
+        <img src="assets/plus.png" alt="info" width="60px" />
+        New! Now choose your PIN online at your own convenience – anytime,
+        anywhere.
+      </span>
+    </div>
+    <p>LENDING ACCOUNTS</p>
+    <div class="balance-box">
+      <span class="balance-content">
+        <img src="assets/plus.png" alt="info" width="60px" />
+        Looking to borrow some cash? We've got some great options.
+      </span>
+    </div>
+    <p>INVESTMENT ACCOUNTS</p>
+    <div class="balance-box">
+      <span class="balance-content">
+        <img src="assets/plus.png" alt="info" width="60px" />
+        Trade smarter, not harder with CIBC Investor's Edge. Invest online!
+      </span>
+    </div>
+
+    <!-- Collapsible Sections -->
+    <div class="collapsible-section">
+      <div class="collapsible-header" (click)="showNote = !showNote">
+        <span>Note</span>
+        <span class="arrow" [class.open]="showNote"></span>
+      </div>
+      <div class="collapsible-content" *ngIf="showNote">
+        <p>
+          "My Accounts" includes the online accounts you hold with CIBC and its
+          affiliates. For help, please contact the CIBC Online Banking® support
+          line at 1-888-872-2422.
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="collapsible-section">
+      <div
+        class="collapsible-header"
+        (click)="showTrademarks = !showTrademarks"
+      >
+        <span>Trademarks and Disclaimers</span>
+        <span class="arrow" [class.open]="showTrademarks"></span>
+      </div>
+      <div class="collapsible-content" *ngIf="showTrademarks">
+        <p>
+          <strong>My Accounts Investment Account Information</strong>Information
+          presented in My Accounts is not an official statement of your
+          investment accounts with CIBC related companies. If there appear to be
+          any errors or discrepancies, please consult your official statements
+          and contact the CIBC related company where you have your
+          account.Information presented in My Accounts is supplemental to the
+          official statements delivered to you for each account within CIBC
+          Investor Services Inc. or CIBC Securities Inc. Some of the positions
+          shown may be held at other financial institutions that are not covered
+          by CIPF. You should refer to your official statement with CIBC
+          Investor Services Inc. or CIBC Securities Inc. to determine which
+          positions are eligible for CIPF protection, including information as
+          to which positions are held in segregation.
+        </p>
+
+        <p>
+          <strong>CIBC Investment Account</strong>CIBC Investment Accounts are
+          offered by CIBC Investor Services Inc. and CIBC Securities Inc.
+        </p>
+
+        <p>
+          <strong>CIBC Investor's Edge</strong>CIBC Investor's Edge is the
+          discount brokerage division of CIBC Investor Services Inc. CIBC
+          Investor Services Inc. does not provide you with any legal, tax, or
+          accounting advice or advice regarding the suitability or profitability
+          of a security or investment in a CIBC Investor's Edge account. You
+          assume full responsibility for transactions in your CIBC Investor's
+          Edge account and for your investment decisions.
+        </p>
+
+        <p>
+          <strong>CIBC Imperial Investor Service</strong>CIBC Imperial Investor
+          Service accounts are offered by CIBC Investor Services Inc.
+        </p>
+
+        <p>
+          <strong>CIBC Wood Gundy</strong>CIBC Wood Gundy is a division of CIBC
+          World Markets Inc.
+        </p>
+
+        <p>
+          <strong
+            >CIBC Mutual Funds and CIBC Portfolio Rebalancing Services</strong
+          >CIBC Mutual Funds accounts and CIBC Portfolio Rebalancing Services
+          accounts are offered by CIBC Securities Inc., a subsidiary of CIBC.
+        </p>
+
+        <p>
+          <strong>CIBC Personal Portfolio Services</strong>CIBC Personal
+          Portfolio Services accounts are discretionary investment management
+          accounts offered by CIBC Trust Corporation to clients of CIBC
+          Securities Inc. and CIBC Investor Services Inc. with household
+          investable assets greater than $100,000. All foreign investment and
+          currency holdings are converted to Canadian dollars using the
+          applicable exchange rate.
+        </p>
+
+        <p>
+          <strong>CIBC Bank USA</strong>The CIBC Bank USA Smart Account is
+          offered by CIBC Bank USA, a wholly owned subsidiary of CIBC, offering
+          financial services in the United States of America. This account is
+          only serviced in English. Funds in this account are insured by the
+          FDIC.
+        </p>
+        
+      </div>
+    </div>
+    <hr />
+
+    <p>CIBC is a member of Canada Deposit insurance Corporation</p>
+  </div>
+  <div class="right-column">
+    <app-right-square-block
+      [icon]="''"
+      [text]="'Profile'"
+      [icon2]="''"
+      [text2]="'Account Security'"
+    ></app-right-square-block>
+
+    <p>PRODUCTS AND SERVICES</p>
+    <app-right-square-block
+      [icon]="''"
+      [text]="'Explore Products'"
+      [icon2]="''"
+      [text2]="'Activate Card'"
+    ></app-right-square-block>
+
+    <div class="refer-card">
+      <div class="icon-wrapper">
+        <img src="your-icon.svg" alt="Refer icon" />
+      </div>
+      <span class="refer-text">Refer and earn</span>
+    </div>
+    <p>HELP AND SUPPORT</p>
+    <app-right-rect-block
+      [icon]="'assets/refer-icon.svg'"
+      [text]="'Book a meeting'"
+    ></app-right-rect-block>
+    <app-right-rect-block
+      [icon]="'assets/refer-icon.svg'"
+      [text]="'Find a CIBC Banking Centre'"
+    ></app-right-rect-block>
+    <app-right-rect-block
+      [icon]="'assets/refer-icon.svg'"
+      [text]="'Help Centre'"
+    ></app-right-rect-block>
+  </div>
+</div>

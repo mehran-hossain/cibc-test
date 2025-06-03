@@ -1,0 +1,279 @@
+/* Cleaned up CSS */
+
+.main-container {
+  display: flex;
+  width: 100%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 17px;
+  color: #606366;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  margin-left: 175px;
+  width: 12.3%;
+  flex-shrink: 0;
+  /* border: 2px dashed hotpink; */
+
+}
+
+.sidebar-btn {
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.8px;
+  padding: 13px 16px;
+  font-size: 17px;
+  color: #606267;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  font-family: 'Open Sans', Arial, sans-serif;
+
+  /* width: 100%; */
+}
+
+.sidebar-btn .icon {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-btn.active {
+  border: 2px solid #be1e2d;
+  color: #be1e2d;
+  background: #fff;
+  font-weight: bold;
+}
+
+.sidebar-btn.active .icon svg {
+  stroke: #be1e2d;
+}
+
+.sidebar-btn:not(.active) .icon svg {
+  stroke: #333;
+}
+
+.sidebar-btn:focus {
+  outline: none;
+  border: 2px solid #be1e2d;
+}
+
+.label {
+  margin-left: 4px;
+}
+
+.center-content {
+  flex: 2;
+  margin-left: 24px;
+  margin-top: 24px;
+  padding: 20px;
+}
+
+
+
+/* Offer Banner Styles */
+.offer-banner {
+  display: flex;
+  align-items: center;
+  background: #c7203a;
+  color: #fff;
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 16px;
+  justify-content: space-between;
+}
+
+.offer-banner__icon {
+  background: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 32px;
+}
+
+.offer-banner__icon img {
+  width: 36px;
+  height: 36px;
+}
+
+.offer-banner__message {
+  flex: 2;
+  font-size: 1.2rem;
+}
+
+.offer-banner__cta {
+  flex: 1;
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.offer-banner__cta .arrow {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+/* Pagination Styles for Offer Banner */
+.offer-banner__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #eee;
+  border-radius: 50%;
+  margin: 0 4px;
+  display: inline-block;
+}
+
+.dot.active {
+  background: #222;
+}
+
+/* Total balance */
+.balance-box {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+}
+
+.balance-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-icon {
+  cursor: pointer;
+  color: #777;
+  font-size: 16px;
+  user-select: none;
+}
+
+.collapsible-section {
+  margin-top: 24px;
+}
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 16px 0 16px 0;
+  border-radius: 4px;
+}
+
+.collapsible-header span:first-child {
+  flex: 1;
+}
+
+.arrow {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: none;
+  transition: transform 0.2s;
+  mask: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23333" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>') no-repeat center;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23333" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>') no-repeat center;
+  background-color: #333;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.collapsible-content {
+  padding: 8px 0 16px 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.collapsible-content p {
+  margin: 0 0 18px 0 !important;
+  padding: 0 !important;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.collapsible-content p strong {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.08em;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.2;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 0;
+}
+
+.right-column {
+  margin-top: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+}
+
+.refer-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 400px;
+  background-color: white;
+  gap: 16px;
+  font-family: sans-serif;
+}
+
+/* the horizontal box */
+.icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper img {
+  width: 24px;
+  height: 24px;
+}
+
+.refer-text {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
