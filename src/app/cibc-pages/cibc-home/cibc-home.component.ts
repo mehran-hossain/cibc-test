@@ -6,6 +6,7 @@ import { AccountBlockComponent } from "../sub-comp/account-block/account-block.c
 import { RightSquareBlockComponent } from '../sub-comp/right-square-block/right-square-block.component';
 import { RightRectBlockComponent } from '../sub-comp/right-rect-block/right-rect-block.component';
 import { UserService, User } from '../../services/user.service';
+import { SidebarService, SidebarConfig } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-cibc-home',
@@ -20,7 +21,7 @@ export class CibcHomeComponent implements OnInit {
     'Transfer Funds',
     { label: 'Interac e-Transfer', italic: true }
   ];
-  showNote = true;
+  showNote = false;
   showTrademarks = false;
 
   // User account data
@@ -30,9 +31,21 @@ export class CibcHomeComponent implements OnInit {
   visaBalance: number = 0;
   totalBalance: number = 0;
 
-  constructor(private userService: UserService) {}
+  // Sidebar configuration
+  sidebarConfig: SidebarConfig = {
+    mainButtons: [],
+    sections: []
+  };
+
+  constructor(
+    private userService: UserService,
+    private sidebarService: SidebarService
+  ) {}
 
   ngOnInit(): void {
+    // Get sidebar configuration
+    this.sidebarConfig = this.sidebarService.getSidebarConfig('home');
+    
     // Get user data and set account balances
     this.user = this.userService.getUser();
     if (this.user) {

@@ -5,60 +5,17 @@
 <app-navbar></app-navbar>
 <div class="main-container">
   <div class="sidebar">
-    <button class="sidebar-btn">
+    <button class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
       <span class="icon">
-        <img src="/assets/icon-home-active.svg" alt="Home Icon" class="icon">
+        <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
       </span>
-      <span class="label">Home</span>
-    </button>
-    <button class="sidebar-btn">
-      <span class="icon">
-       <img src="/assets/icon-account-details.svg" alt="Account Details Icon" class="icon"> <!-- Account Details icon SVG -->
-        
-      </span>
-      <span class="label">Account Details</span>
-    </button>
-    <button class="sidebar-btn">
-      <span class="icon">
-        <img src="/assets/icon-estatements.svg" alt="My Documents Icon" class="icon"> <!-- My Documents icon SVG -->
-        
-      </span>
-      <span class="label">My Documents</span>
+      <span class="label">{{ button.label }}</span>
     </button>
 
     <app-sidebar
-      [title]="'Move Money'"
-      [items]="['Bill Payments', 'Transfer Funds', 'Interac e-Transfer']"
-    >
-    </app-sidebar>
-    <app-sidebar
-      [title]="'Advice'"
-      [items]="['Net Worth', 'Help Centre', 'Customer Service']"
-    >
-    </app-sidebar>
-    <app-sidebar
-      [title]="'More'"
-      [items]="[
-        'Global Money Transfer ',
-        'Order Foreign Cash',
-        'Buy Gold and Silver',
-        'Check Credit Score',
-        'Download Transactions',
-        'Manage Upcoming Transactions',
-        'Document Delivery Preferences',
-        'Request Centre'
-      ]"
-    >
-    </app-sidebar>
-    <app-sidebar
-      [title]="'Settings'"
-      [items]="[
-        'Manage My Card',
-        'Manage My Alerts',
-        'Preference Centre',
-        'Account Security',
-        'Statment Preferences'
-      ]"
+      *ngFor="let section of sidebarConfig.sections"
+      [title]="section.title"
+      [items]="section.items"
     >
     </app-sidebar>
 

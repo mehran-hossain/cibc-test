@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="sidebar">
+    <button class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
+      <span class="icon">
+        <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
+      </span>
+      <span class="label">{{ button.label }}</span>
+    </button>
+
+    <app-sidebar
+      *ngFor="let section of sidebarConfig.sections"
+      [title]="section.title"
+      [items]="section.items"
+    >
+    </app-sidebar>
+  </div>
+  <div class="center-content">
+    <h1>Bill Payment</h1>
+    <!-- Add your bill payment content here -->
+  </div>
+</div>

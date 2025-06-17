@@ -16,12 +16,9 @@
   margin-left: 175px;
   width: 12.3%;
   flex-shrink: 0;
-  /* border: 2px dashed hotpink; */
-
 }
 
 .sidebar-btn {
-
   display: flex;
   align-items: center;
   gap: 5px;
@@ -35,8 +32,6 @@
   transition: border 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0,0,0,0.03);
   font-family: 'Open Sans', Arial, sans-serif;
-
-  /* width: 100%; */
 }
 
 .sidebar-btn .icon {
@@ -74,8 +69,6 @@
   margin-top: 24px;
   padding: 20px;
 }
-
-
 
 /* Offer Banner Styles */
 .offer-banner {
