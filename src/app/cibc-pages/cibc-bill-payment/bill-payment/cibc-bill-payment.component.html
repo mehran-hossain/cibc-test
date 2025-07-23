@@ -46,18 +46,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let payee of userPayees">
+        <tr *ngFor="let payee of userPayees; let i = index">
           <td>
             <input type="checkbox">
             <a href="#">{{ payee.name }} ({{ payee.accountNumber }})</a><br>
             <span class="last-payment" *ngIf="payee.lastPayment > 0">Last payment: ${{ payee.lastPayment | number:'1.2-2' }} - May 5, 2025</span>
           </td>
           <td>
-            Chequing ({{ chequingAccountNumber }})<br>
-            <span class="account-balance">${{ chequingBalance | number:'1.2-2' }}</span>
+            <button type="button" class="account-link" (click)="onAccountClick(i)">
+              {{ payee.selectedAccountType }} ({{ payee.userAccountNumber }})
+            </button><br>
+            <span class="account-balance">
+              ${{ payee.selectedAccountType === 'Chequing' ? chequingBalance : (user?.accounts?.savings?.balance || 0) | number:'1.2-2' }}
+            </span>
           </td>
           <td>
-            <input type="text" class="amount-input" placeholder="$" (input)="onAmountInput($event, payee)">
+            <div class="amount-input-container">
+              <span class="dollar-sign">$</span>
+              <input type="text" class="amount-input" placeholder="0.00" (input)="onAmountInput($event, payee)">
+            </div>
           </td>
           <td>
             June 17, 2025 <span class="calendar-icon">&#128197;</span>
@@ -90,3 +97,11 @@
   (back)="onModalBack()"
   (payBill)="onModalPayBill()">
 </app-bill-payment-verification-modal>
+
+<!-- Account Select Modal -->
+<app-account-select-modal
+  [isVisible]="showAccountModal"
+  [accounts]="accountOptions"
+  (close)="onAccountModalClose()"
+  (select)="onAccountSelect($event)">
+</app-account-select-modal>

@@ -1,0 +1,65 @@
+.account-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.08);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.account-modal-dialog {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 40px;
+  min-width: 370px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  border: 2px solid #ccc;
+}
+
+.account-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 12px 18px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.account-modal-title {
+  font-size: 17px;
+  color: #222;
+}
+.account-modal-close {
+  font-size: 20px;
+  color: #d0021b;
+  cursor: pointer;
+  font-weight: bold;
+}
+.account-modal-list {
+  padding: 12px 18px 18px 18px;
+}
+.account-modal-item {
+  margin-bottom: 10px;
+}
+.account-modal-item:last-child {
+  margin-bottom: 0;
+}
+.account-modal-item a {
+  color: #0a3c7d;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+}
+.account-modal-item a.disabled {
+  color: #888;
+  text-decoration: underline;
+  pointer-events: none;
+  cursor: default;
+}
+.account-modal-item span {
+  margin-left: 6px;
+  font-size: 15px;
+} 

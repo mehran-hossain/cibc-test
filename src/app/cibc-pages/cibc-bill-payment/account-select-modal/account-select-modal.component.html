@@ -1,0 +1,17 @@
+<div class="account-modal-overlay" *ngIf="isVisible">
+  <div class="account-modal-dialog">
+    <div class="account-modal-header">
+      <span class="account-modal-title"><b>Choose an Account to Pay From</b></span>
+      <span class="account-modal-close" (click)="onClose()">&#10006;</span>
+    </div>
+    <div class="account-modal-list">
+      <div *ngFor="let acc of accounts" class="account-modal-item">
+        <a href="#" (click)="onSelect(acc, $event)" [class.disabled]="acc.balance === null">
+          {{ acc.type }} ({{ acc.accountNumber }})
+          <span *ngIf="acc.balance !== null">${{ acc.balance | number:'1.2-2' }}</span>
+          <span *ngIf="acc.balance === null">Not available</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 

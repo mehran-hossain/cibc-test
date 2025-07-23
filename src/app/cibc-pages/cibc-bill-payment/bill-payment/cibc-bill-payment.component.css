@@ -178,9 +178,25 @@
   color: #4caf50;
   font-weight: 600;
 }
+.amount-input-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dollar-sign {
+  position: absolute;
+  left: 8px;
+  color: #606366;
+  font-size: 16px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .amount-input {
   width: 90px;
-  padding: 6px 8px;
+  padding: 6px 8px 6px 20px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -256,4 +272,12 @@
 .payee-link-icon {
   font-size: 18px;
   margin-right: 6px;
+}
+
+.account-link {
+  color: #0a3c7d;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
 }

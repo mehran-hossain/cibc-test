@@ -8,6 +8,7 @@ export interface Payee {
   accountNumber: string;
   keywords: string[];
   lastPayment: number;
+  paymentDate?: string;
   nickname?: string;
   userAccountNumber?: string;
 }
@@ -49,5 +50,12 @@ export class PayeeService {
 
   getUserPayees(username: string): Observable<{ message: string; payees: Payee[] }> {
     return this.http.get<{ message: string; payees: Payee[] }>(`${this.apiUrl}/users/${username}/payees`);
+  }
+
+  payBill(username: string, payeeId: string, amount: number, accountType: string, paymentDate: string) {
+    return this.http.put<{ message: string; user: any; payees: Payee[] }>(
+      `${this.apiUrl}/users/${username}/payees/${payeeId}/pay`,
+      { amount, accountType, paymentDate }
+    );
   }
 } 

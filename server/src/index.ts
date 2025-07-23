@@ -21,6 +21,9 @@ interface Payee {
   accountNumber: string;
   keywords: string[];
   lastPayment: number;
+  paymentDate?: string;
+  nickname?: string;
+  userAccountNumber?: string;
 }
 
 const loadPayees = (): Payee[] => {
@@ -114,6 +117,7 @@ const users = [
         accountNumber: "HYDRO026",
         keywords: ["manitoba", "hydro", "14 digit", "utilities"],
         lastPayment: 1657.00,
+        paymentDate: "2024-05-01",
         nickname: "Manitoba Hydro",
         userAccountNumber: "1234567890"
       },
@@ -123,6 +127,7 @@ const users = [
         accountNumber: "HYDRO042",
         keywords: ["toronto", "hydro", "electric", "utilities"],
         lastPayment: 89.50,
+        paymentDate: "2024-05-01",
         nickname: "Toronto Hydro",
         userAccountNumber: "1234567890"
       },
@@ -132,6 +137,7 @@ const users = [
         accountNumber: "HYDRO035",
         keywords: ["oakville", "hydro", "utilities"],
         lastPayment: 156.75,
+        paymentDate: "2024-05-01",
         nickname: "Oakville Hydro",
         userAccountNumber: "1234567890"
       }
@@ -152,6 +158,7 @@ const users = [
         accountNumber: "HYDRO002",
         keywords: ["bc", "hydro", "utilities", "electricity", "british columbia"],
         lastPayment: 234.00,
+        paymentDate: "2024-05-01",
         nickname: "BC Hydro",
         userAccountNumber: "9876543210"
       },
@@ -161,6 +168,7 @@ const users = [
         accountNumber: "HYDRO013",
         keywords: ["guelph", "hydro", "utilities"],
         lastPayment: 78.25,
+        paymentDate: "2024-05-01",
         nickname: "Guelph Hydro",
         userAccountNumber: "9876543210"
       }
@@ -215,6 +223,47 @@ app.get('/api/users/:username/payees', (req: Request, res: Response) => {
   }
   if (!user.payees) user.payees = [];
   res.json({ message: 'User payees retrieved successfully', payees: user.payees });
+});
+
+// Process a bill payment for a user and payee
+app.put('/api/users/:username/payees/:payeeId/pay', (req: Request, res: Response) => {
+  const { username, payeeId } = req.params;
+  const { amount, accountType, paymentDate } = req.body;
+  const user = users.find(u => u.username === username);
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+  if (!user.payees) user.payees = [];
+  const payee = user.payees.find((p: any) => p.id === payeeId);
+  if (!payee) {
+    return res.status(404).json({ message: 'Payee not found' });
+  }
+  if (!amount || amount <= 0) {
+    return res.status(400).json({ message: 'Invalid amount' });
+  }
+  if (!['Chequing', 'Savings'].includes(accountType)) {
+    return res.status(400).json({ message: 'Invalid account type' });
+  }
+  // Subtract from the correct account
+  if (accountType === 'Chequing') {
+    if (user.accounts.chequing.balance < amount) {
+      return res.status(400).json({ message: 'Insufficient chequing balance' });
+    }
+    user.accounts.chequing.balance -= amount;
+  } else if (accountType === 'Savings') {
+    if (user.accounts.savings.balance < amount) {
+      return res.status(400).json({ message: 'Insufficient savings balance' });
+    }
+    user.accounts.savings.balance -= amount;
+  }
+  // Update payee lastPayment and paymentDate
+  payee.lastPayment = amount;
+  payee.paymentDate = paymentDate;
+  res.json({
+    message: 'Bill payment processed',
+    user: { username: user.username, accounts: user.accounts },
+    payees: user.payees
+  });
 });
 
 app.listen(port, () => {
