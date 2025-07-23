@@ -70,4 +70,27 @@ export class SidebarService {
   addSidebarConfig(pageId: string, config: SidebarConfig) {
     this.sidebarConfigs[pageId] = config;
   }
+
+  // Centralized navigation methods
+  getRouteForButton(button: any): string {
+    switch(button.label) {
+      case 'Home':
+        return '/cibc-home';
+      case 'Account Details':
+        return '#';
+      case 'My Documents':
+        return '#';
+      default:
+        return '#';
+    }
+  }
+
+  getRouteForItem(item: string): string {
+    switch(item) {
+      case 'Bill Payments':
+        return '/cibc-bill-payment';
+      default:
+        return '#';
+    }
+  }
 } 

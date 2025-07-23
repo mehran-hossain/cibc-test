@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="sidebar">
+    <a [routerLink]="sidebarService.getRouteForButton(button)" class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
+      <span class="icon">
+        <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
+      </span>
+      <span class="label">{{ button.label }}</span>
+    </a>
+    <app-sidebar
+      *ngFor="let section of sidebarConfig.sections"
+      [title]="section.title"
+      [items]="section.items"
+    >
+    </app-sidebar>
+  </div>
+  <div class="center-content">
+    <h1>ADD OR EDIT PAYEES</h1>
+    <ul class="instructions-list">
+      <li>On this page, you can edit your existing payees or add new ones.</li>
+      <li>Edit your "New bill payee has been added" alert <a href="#">delivery preferences</a>.</li>
+      <li>To register your government taxes as a payee or pay and file your business taxes, refer to <a href="#">Government Payment and Filing Service</a>.</li>
+      <li>If you're trying to pay a CIBC bill, you may need to <a href="#">link your CIBC Account</a></li>
+      <li><a href="#">Learn more about paying bills online</a></li>
+    </ul>
+
+    <hr />
+
+    <section class="add-payee-section">
+      <h2>ADD A PAYEE <span class="info-icon">&#9432;</span></h2>
+      <div class="add-payee-instructions">
+        <p><strong>When searching for payees by name:</strong></p>
+        <ul>
+          <li>Type the full name of the company if abbreviated name is 2 characters or less (for example TD should be Toronto Dominion).</li>
+          <li>Try using a generic name such as "Simplii Visa" instead of the specific name of your credit card (for example "Aventura Visa").</li>
+        </ul>
+        <p><strong>When searching for payees by keyword:</strong></p>
+        <ul>
+          <li>Insert a comma in between keywords (for example "VISA, Simplii") when searching for more than one keyword.</li>
+          <li>Use specific keywords (for example "Hydro Quebec" instead of "Hydro").</li>
+        </ul>
+      </div>
+      <form class="add-payee-form" (ngSubmit)="onSearchSubmit()">
+        <label for="companyName">Enter company name:</label>
+        <input 
+          id="companyName" 
+          name="companyName" 
+          type="text" 
+          [(ngModel)]="companyName"
+          required
+        />
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+    </section>
+
+    <hr />
+
+    <section class="edit-payees-section">
+      <h2>EDIT PAYEES <span class="info-icon">&#9432;</span></h2>
+      <ul class="edit-payees-instructions">
+        <li>Create nicknames for your payees to make it easier for you to recognize. The nickname will appear instead of the payee name.</li>
+        <li>Deleting a payee will delete any future one-time and recurring payments that you have scheduled for the payee.</li>
+        <li>To update an account number, first delete the payee and then add the payee again using the new account number.</li>
+      </ul>
+      <table class="payees-table">
+        <thead>
+          <tr>
+            <th>PAYEE NAME</th>
+            <th>NICKNAME</th>
+            <th>RECURRENT PAYMENTS</th>
+            <th>DISPLAY ON PAY BILLS PAGE</th>
+            <th>DELETE PAYEE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">UNIVERSITY OF MANITOBA (8036109)</a> <a href="#" class="create-link">Create</a></td>
+            <td></td>
+            <td><a href="#">Set up Payments</a></td>
+            <td><a href="#">Do not display</a></td>
+            <td><a href="#" class="delete-link">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="action-buttons">
+      <button class="view-payments-btn">View All Payments</button>
+      <button class="pay-bills-btn">Pay Bills</button>
+    </div>
+  </div>
+</div> 

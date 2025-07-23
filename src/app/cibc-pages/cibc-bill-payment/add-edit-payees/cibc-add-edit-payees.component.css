@@ -1,0 +1,201 @@
+.main-container {
+  display: flex;
+  width: 100%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 17px;
+  color: #606366;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  margin-left: 175px;
+  width: 12.3%;
+  flex-shrink: 0;
+}
+
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.8px;
+  padding: 13px 16px;
+  font-size: 17px;
+  color: #606267;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-decoration: none;
+}
+
+.sidebar-btn .icon {
+  display: flex;
+  align-items: center;
+}
+
+.center-content {
+  flex: 2;
+  margin-left: 24px;
+  margin-top: 24px;
+  padding: 20px;
+}
+.center-content h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #222;
+}
+.center-content p {
+  font-size: 18px;
+  color: #606366;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.instructions-list {
+  margin-bottom: 18px;
+  padding-left: 18px;
+  color: #222;
+  font-size: 16px;
+}
+.instructions-list li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+hr {
+  border: none;
+  border-top: 1.5px solid #bdbdbd;
+  margin: 28px 0 24px 0;
+}
+
+.add-payee-section, .edit-payees-section {
+  margin-bottom: 32px;
+}
+.add-payee-section h2, .edit-payees-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info-icon {
+  font-size: 17px;
+  color: #b71c1c;
+  cursor: pointer;
+}
+.add-payee-instructions, .edit-payees-instructions {
+  font-size: 15px;
+  color: #606366;
+  margin-bottom: 16px;
+}
+.add-payee-instructions ul, .edit-payees-instructions {
+  padding-left: 18px;
+}
+.add-payee-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.add-payee-form label {
+  font-size: 16px;
+  color: #222;
+  margin-right: 6px;
+}
+.add-payee-form input[type="text"] {
+  padding: 7px 10px;
+  font-size: 16px;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 2.5px;
+  width: 270px;
+  outline: none;
+  transition: border 0.2s;
+}
+.add-payee-form input[type="text"]:focus {
+  border-color: #b71c1c;
+}
+.search-btn {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  border-radius: 2.5px;
+  padding: 8px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.search-btn:hover {
+  background: #a31515;
+}
+
+.payees-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+.payees-table th, .payees-table td {
+  border: 1px solid #e0e0e0;
+  padding: 10px 12px;
+  text-align: left;
+}
+.payees-table th {
+  background: #f5f5f5;
+  font-weight: 700;
+  color: #222;
+}
+.payees-table td {
+  background: #fff;
+  color: #222;
+}
+.payees-table a {
+  color: #b71c1c;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+}
+.create-link {
+  margin-left: 6px;
+  font-size: 15px;
+}
+.delete-link {
+  color: #b71c1c;
+  font-weight: 700;
+}
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 18px;
+}
+.view-payments-btn, .pay-bills-btn {
+  background: #fff;
+  color: #b71c1c;
+  border: 2px solid #b71c1c;
+  border-radius: 2.5px;
+  padding: 10px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.pay-bills-btn {
+  background: #b71c1c;
+  color: #fff;
+}
+.view-payments-btn:hover {
+  background: #fbe9e7;
+}
+.pay-bills-btn:hover {
+  background: #a31515;
+} 

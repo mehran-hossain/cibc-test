@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="sidebar">
+    <a [routerLink]="sidebarService.getRouteForButton(button)" class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
+      <span class="icon">
+        <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
+      </span>
+      <span class="label">{{ button.label }}</span>
+    </a>
+    <app-sidebar
+      *ngFor="let section of sidebarConfig.sections"
+      [title]="section.title"
+      [items]="section.items"
+    >
+    </app-sidebar>
+  </div>
+  <div class="center-content">
+    <h1 class="results-title">PAY<span class="red">E</span>E SEARCH RESULTS</h1>
+    <div class="stepper">
+      <span class="step active">1</span>
+      <span class="step-line"></span>
+      <span class="step">2</span>
+      <span class="step-line"></span>
+      <span class="step">3</span>
+    </div>
+    <ul class="instructions-list">
+      <li>Select the payee you'd like to add.</li>
+      <li>You can also <a href="#">pay your CIBC U.S. Dollar Visa credit card account</a>.</li>
+      <li>If the payee you're searching for doesn't appear below:</li>
+      <ul>
+        <li>Select "Back" to perform a new search.</li>
+        <li>Check the front and back of your bill for the full billing name.</li>
+        <li>Call the merchant directly to find out what they are billed under as parent organization (for example utility companies such as Hydro).</li>
+        <li>Some merchants are not on the billing list, call them directly to set up bill payment.</li>
+      </ul>
+    </ul>
+    <div class="payees-section">
+      <div class="payees-header">PAYEES</div>
+      <div class="payees-list">
+        <div class="payees-column">
+          <a *ngFor="let payee of leftColumn" class="payee-link" (click)="selectPayee(payee)">{{ payee.name }}</a>
+        </div>
+        <div class="payees-column">
+          <a *ngFor="let payee of rightColumn" class="payee-link" (click)="selectPayee(payee)">{{ payee.name }}</a>
+        </div>
+      </div>
+    </div>
+    <button class="back-btn" (click)="goBack()">Back</button>
+  </div>
+</div>

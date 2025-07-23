@@ -20,4 +20,17 @@ export class SidebarComponent {
         return '#';
     }
   }
+
+  getRouteForButton(button: any): string {
+    switch(button.label) {
+      case 'Home':
+        return '/cibc-home';
+      case 'Account Details':
+        return '#';
+      case 'My Documents':
+        return '#';
+      default:
+        return '#';
+    }
+  }
 }

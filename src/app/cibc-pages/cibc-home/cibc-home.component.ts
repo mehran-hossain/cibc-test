@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { NavbarComponent} from '../sub-comp/navbar/navbar.component';
 import { SidebarComponent } from '../sub-comp/sidebar/sidebar.component';
 import { AccountBlockComponent } from "../sub-comp/account-block/account-block.component";
@@ -11,7 +12,7 @@ import { SidebarService, SidebarConfig } from '../../services/sidebar.service';
 @Component({
   selector: 'app-cibc-home',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, SidebarComponent, AccountBlockComponent, RightSquareBlockComponent, RightRectBlockComponent],
+  imports: [CommonModule, RouterModule, NavbarComponent, SidebarComponent, AccountBlockComponent, RightSquareBlockComponent, RightRectBlockComponent],
   templateUrl: './cibc-home.component.html',
   styleUrl: './cibc-home.component.css'
 })
@@ -39,7 +40,7 @@ export class CibcHomeComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private sidebarService: SidebarService
+    public sidebarService: SidebarService
   ) {}
 
   ngOnInit(): void {

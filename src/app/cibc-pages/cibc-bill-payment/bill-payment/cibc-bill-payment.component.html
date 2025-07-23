@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="sidebar">
+    <a [routerLink]="sidebarService.getRouteForButton(button)" class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
+      <span class="icon">
+        <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
+      </span>
+      <span class="label">{{ button.label }}</span>
+    </a>
+
+    <app-sidebar
+      *ngFor="let section of sidebarConfig.sections"
+      [title]="section.title"
+      [items]="section.items"
+    >
+    </app-sidebar>
+  </div>
+  <div class="center-content">
+    <div class="step-indicator">
+      <span class="step active">1</span>
+      <span class="step-separator">&#8212;</span>
+      <span class="step">2</span>
+      <span class="step-label">Step:</span>
+    </div>
+    <h1>PAY BILLS</h1>
+    <ul class="info-bullets">
+      <li>To make a payment, enter the amount and payment date for the bills you want to pay, and select "Next."</li>
+      <li>Payments submitted after 6:00 pm ET will be processed in 2 business days. <a href="#">Learn more about paying bills online.</a></li>
+      <li>You should schedule your payment 2 to 3 business days before the bill's due date. Made a mistake on a bill payment? <a href="#">Here's what you can do.</a></li>
+      <li>If a Payee you've previously added is not displayed in the list below, the merchant might have updated their billing information or may no longer be active. Please reach out to the merchant for more information.</li>
+    </ul>
+    <div class="payee-options">
+      <a [routerLink]="['/cibc-add-edit-payees']" class="payee-link">
+        <span class="payee-link-icon">&#128101;</span> Add or edit payees
+      </a>
+      <label><input type="checkbox" checked> Show last payment <span class="info-icon">i</span></label>
+      <label><input type="checkbox" checked> Show account balance</label>
+    </div>
+    <table class="bill-table">
+      <thead>
+        <tr>
+          <th>PAYEE</th>
+          <th>ACCOUNT <a href="#">(Change All)</a></th>
+          <th>AMOUNT</th>
+          <th>PAYMENT DATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payee of userPayees">
+          <td>
+            <input type="checkbox">
+            <a href="#">{{ payee.name }} ({{ payee.accountNumber }})</a><br>
+            <span class="last-payment" *ngIf="payee.lastPayment > 0">Last payment: ${{ payee.lastPayment | number:'1.2-2' }} - May 5, 2025</span>
+          </td>
+          <td>
+            Chequing ({{ chequingAccountNumber }})<br>
+            <span class="account-balance">${{ chequingBalance | number:'1.2-2' }}</span>
+          </td>
+          <td>
+            <input type="text" class="amount-input" placeholder="$" (input)="onAmountInput($event, payee)">
+          </td>
+          <td>
+            June 17, 2025 <span class="calendar-icon">&#128197;</span>
+          </td>
+        </tr>
+        <tr *ngIf="userPayees.length === 0">
+          <td colspan="4" style="text-align: center; padding: 20px; color: #666;">
+            No payees found. <a [routerLink]="['/cibc-add-edit-payees']">Add a payee</a> to get started.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-row">
+      <span class="total-label">TOTAL AMOUNT:</span>
+      <span class="total-value">$0.00</span>
+      <button class="next-btn" (click)="onNextButtonClick()">Next</button>
+    </div>
+    <div class="note-section">
+      <span class="note-icon">&#128196;</span>
+      <strong>Note:</strong> Payments to a CIBC credit card are classified as transfers. They appear in the transaction history of the account from which you have paid. They do not appear in your bill payment history.
+    </div>
+  </div>
+</div>
+
+<!-- Bill Payment Verification Modal -->
+<app-bill-payment-verification-modal
+  [isVisible]="showVerificationModal"
+  [paymentData]="currentPaymentData"
+  (cancel)="onModalCancel()"
+  (back)="onModalBack()"
+  (payBill)="onModalPayBill()">
+</app-bill-payment-verification-modal>

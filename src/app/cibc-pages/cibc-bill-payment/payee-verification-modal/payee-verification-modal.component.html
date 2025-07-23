@@ -1,0 +1,29 @@
+<div class="modal-overlay">
+  <div class="modal-dialog">
+    <h2>ADD PAYEE - VERIFICATION</h2>
+    <p class="modal-desc">
+      Please review the payee information you have entered. If the information is correct, select the
+      “Add Payee” button below. For help, call 1-888-872-2422 or <a href="#">contact us</a>.
+    </p>
+    <div class="modal-info-row">
+      <span>Payee:</span>
+      <span class="modal-value">{{ payee?.name }}</span>
+    </div>
+    <hr />
+    <div class="modal-info-row">
+      <span>Payee nickname:</span>
+      <span class="modal-value">{{ nickname }}</span>
+    </div>
+    <div class="modal-info-row">
+      <span>Payee account number:</span>
+      <span class="modal-value">{{ accountNumber }}</span>
+    </div>
+    <div class="modal-actions">
+      <button class="cancel-btn" (click)="onCancel()">
+        <span style="font-size: 1.2em; margin-right: 4px;">&#10006;</span> Cancel
+      </button>
+      <button class="back-btn" (click)="onBack()">Back</button>
+      <button class="add-btn" (click)="onAdd()">Add Payee</button>
+    </div>
+  </div>
+</div>

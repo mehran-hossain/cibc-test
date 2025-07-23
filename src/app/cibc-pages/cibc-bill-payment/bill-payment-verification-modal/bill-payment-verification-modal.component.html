@@ -1,0 +1,41 @@
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal-dialog">
+    <h2>PAY BILLS - VERIFICATION</h2>
+    <p class="modal-desc">
+      Review your bill payment request and select the "Pay Bill(s)" button to continue.
+    </p>
+    <p class="important-note">
+      * Transactions submitted after 6:00 pm ET will be processed in 2 business days.
+    </p>
+    
+    <div class="payment-details">
+      <div class="modal-info-row">
+        <span class="label">Payee:</span>
+        <span class="modal-value">{{ paymentData?.payee }}</span>
+      </div>
+      <hr />
+      <div class="modal-info-row">
+        <span class="label">Account:</span>
+        <span class="modal-value">{{ paymentData?.account }}</span>
+      </div>
+      <hr />
+      <div class="modal-info-row">
+        <span class="label">Amount:</span>
+        <span class="modal-value">${{ paymentData?.amount | number:'1.2-2' }}</span>
+      </div>
+      <hr />
+      <div class="modal-info-row">
+        <span class="label">Payment date:</span>
+        <span class="modal-value">{{ paymentData?.paymentDate }}</span>
+      </div>
+    </div>
+    
+    <div class="modal-actions">
+      <button class="cancel-btn" (click)="onCancel()">
+        <span class="cancel-icon">&#10006;</span> Cancel
+      </button>
+      <button class="back-btn" (click)="onBack()">Back</button>
+      <button class="pay-btn" (click)="onPayBill()">Pay Bill(s)</button>
+    </div>
+  </div>
+</div> 

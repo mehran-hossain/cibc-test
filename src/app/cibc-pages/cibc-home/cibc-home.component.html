@@ -5,12 +5,12 @@
 <app-navbar></app-navbar>
 <div class="main-container">
   <div class="sidebar">
-    <button class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
+    <a [routerLink]="sidebarService.getRouteForButton(button)" class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
       <span class="icon">
         <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
       </span>
       <span class="label">{{ button.label }}</span>
-    </button>
+    </a>
 
     <app-sidebar
       *ngFor="let section of sidebarConfig.sections"

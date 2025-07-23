@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="sidebar">
+    <a [routerLink]="sidebarService.getRouteForButton(button)" class="sidebar-btn" *ngFor="let button of sidebarConfig.mainButtons">
+      <span class="icon">
+        <img [src]="button.icon" [alt]="button.label + ' Icon'" class="icon">
+      </span>
+      <span class="label">{{ button.label }}</span>
+    </a>
+    <app-sidebar
+      *ngFor="let section of sidebarConfig.sections"
+      [title]="section.title"
+      [items]="section.items"
+    >
+    </app-sidebar>
+  </div>
+  <div class="center-content">
+    <h1>PAYEE ACCOUNT DETAILS</h1>
+    <div class="stepper">
+      <span class="step active">1</span>
+      <span class="step-line"></span>
+      <span class="step active">2</span>
+      <span class="step-line"></span>
+      <span class="step">3</span>
+    </div>
+    <ul class="instructions-list">
+      <li>Enter the account number that appears on the bill you'd like to pay.</li>
+      <li>If you'd like to give a nickname to the payee, enter a name in the "Payee Nickname" field below.</li>
+      <li>Please enter any letters in upper case.</li>
+      <li>Use the special text and/or image below (if applicable).</li>
+      <li>For help, call 1-888-872-2422 or <a href="#">contact us</a></li>
+    </ul>
+    <form class="payee-details-form">
+      <div class="payee-row">
+        <label class="payee-label">Payee:</label>
+        <span class="payee-value" *ngIf="payee">{{ payee.name }}</span>
+        <span class="payee-value" *ngIf="!payee" style="color: red;">No payee data loaded</span>
+      </div>
+      <hr />
+      <div class="payee-row">
+        <label for="nickname">Payee nickname (optional):</label>
+        <input id="nickname" name="nickname" type="text" [(ngModel)]="nickname" />
+        <span class="required-icon">&#9432;</span>
+      </div>
+      <div class="payee-row">
+        <label for="accountNumber">Payee account number:</label>
+        <input id="accountNumber" name="accountNumber" type="text" [(ngModel)]="accountNumber" required />
+        <span class="required-icon">&#9432;</span>
+      </div>
+      <hr />
+    </form>
+    <div class="payee-info-block">
+      <p>This account consists of an <strong>Account No.</strong> that is 14 numbers. The first number is "7 or 8" and the 8th number is "6 or 7". Enter this number without any spaces.</p>
+    </div>
+    <div class="payee-image-placeholder">
+      <!-- Insert image here -->
+      <span style="color:#888;">[Payee bill image placeholder]</span>
+    </div>
+    <div class="payee-actions-row">
+      <div class="left-actions">
+        <button class="cancel-btn">Cancel</button>
+        <button class="back-btn">Back</button>
+      </div>
+      <div class="right-actions">
+        <button class="next-btn" type="button" (click)="onNextClick()">Next</button>
+      </div>
+    </div>
+    <div class="payee-note-block">
+      <strong>Note:</strong>
+      <ul>
+        <li>Create nicknames for your payees to make it easier for you to recognize payees.</li>
+        <li>The nickname will appear instead of the payee name.</li>
+        <li>The nickname will only appear when you pay your bills through Online Banking.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-payee-verification-modal
+  *ngIf="showVerificationModal"
+  [payee]="payee"
+  [nickname]="nickname"
+  [accountNumber]="accountNumber"
+  (cancel)="onModalCancel()"
+  (back)="onModalBack()"
+  (add)="onModalAdd()"
+></app-payee-verification-modal>
